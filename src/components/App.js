@@ -10,13 +10,20 @@ class App extends Component {
     weather: []
   }
 
+  // Function that fetches data from API
   componentDidMount() {
-    fetch('wttr.in/Stockholm?format=j1')
-    .then(res => res.json())
-    .then((data) => {
-      this.setState({ weather: data })
+    fetch('http://wttr.in/Stockholm?format=j1')
+    .then(response => {
+      console.log(response);
+      return response.json();
     })
-    .catch(console.log)
+    .then((data) => {
+      console.log(data);
+      //this.setState({ weather: data })
+    })
+    .catch(err => {
+      console.log("Error reading data " + err);
+    });
   }
 
   render () {
@@ -33,6 +40,5 @@ const Container = styled.div `
   display: flex; 
   margin: 10px;
 `
-
 
 export default App
