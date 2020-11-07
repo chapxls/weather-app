@@ -1,20 +1,21 @@
-import React, { Component } from 'react';
-import styled from 'styled-components'
-import sun from '../../assets/sun.png'
-import cloud from '../../assets/cloudy.png'
-import rainCloud from '../../assets/cloud-with-rain.png'
-import partlyCloud from '../../assets/partly-cloudy.png'
-import snow from '../../assets/snowy.png'
-import thunder from '../../assets/thunder.png'
+import React, { Component } from "react";
+import "./Card.scss";
+import sun from "../../assets/sun.png";
+import cloud from "../../assets/cloudy.png";
+import rainCloud from "../../assets/cloud-with-rain.png";
+import partlyCloud from "../../assets/partly-cloudy.png";
+import snow from "../../assets/snowy.png";
+import thunder from "../../assets/thunder.png";
+import fog from "../../assets/fog.png";
+import lightRain from "../../assets/light-rain.png";
 
 export default class Card extends Component {
-
   constructor() {
     super();
     this.state = {
       loading: true,
       weather: null,
-    }
+    };
   }
 
   async componentDidMount() {
@@ -23,48 +24,59 @@ export default class Card extends Component {
     const data = await response.json();
     this.setState({
       weather: data.current_condition[0],
-      loading: false
+      loading: false,
     });
-    console.log(data);
   }
 
   switchImg() {
-    if(this.state.weather.weatherDesc[0].value === 'Clear') {
+    let weatherDesc = this.state.weather.weatherDesc[0].value;
+
+    if (weatherDesc === "Clear") {
       return sun;
-    } else if(this.state.weather.weatherDesc[0].value === 'Cloudy') {
+    } else if (weatherDesc === "Cloudy") {
       return cloud;
-    } else if(this.state.weather.weatherDesc[0].value === 'Partly Cloudy') {
+    } else if (weatherDesc === "Partly cloudy") {
       return partlyCloud;
-    } else if(this.state.weather.weatherDesc[0].value === 'Rainy') {
+    } else if (weatherDesc === "Rainy") {
       return rainCloud;
-    } else if(this.state.weather.weatherDesc[0].value === 'Snowy') {
+    } else if (weatherDesc === "Snowy") {
       return snow;
-    } else if(this.state.weather.weatherDesc[0].value === 'Thunder') {
+    } else if (weatherDesc === "Thunder") {
       return thunder;
+    } else if (weatherDesc === "Fog") {
+      return fog;
+    } else if (weatherDesc === "Light rain") {
+      return lightRain;
+    } else if (weatherDesc === "Overcast") {
+      return cloud;
     }
   }
 
   render() {
-    return (
- 
-    this.state.loading || !this.state.weather ? (
-      <div>Fetching weather data..</div>
-      ) : (
-        <div className="card">
-        <h1>Today</h1>
-        <div className="card-body">
-          <h5 className="card-title">
-            {this.state.weather.temp_C}
-          </h5>
-          <h6 className="card-subtitle">
-            Feels like {this.state.weather.FeelsLikeC}
-          </h6>
-          <img src={this.switchImg()} alt="weather-img"/>
-          <p className="card-text">
-            {this.state.weather.weatherDesc[0].value}
-          </p>
+    return this.state.loading || !this.state.weather ? (
+      <div>Loading weather data..</div>
+    ) : (
+      <div className="container p-0">
+        <div className="row no-gutters">
+          <h1 className="col-12">Today</h1>
+          <div className="col-12 card">
+            <div className="card-body">
+              <div className="col-6 col-sm-12 p-0">
+                <h5 className="card-title">{this.state.weather.temp_C}°</h5>
+                <h6 className="card-subtitle">
+                  Feels like {this.state.weather.FeelsLikeC}°
+                </h6>
+              </div>
+              <div className="col-6 col-sm-12 p-0">
+                <img src={this.switchImg()} alt="weather-img" />
+                <p className="card-text">
+                  {this.state.weather.weatherDesc[0].value}
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-        ))
-    }
+    );
+  }
 }

@@ -1,0 +1,54 @@
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @media (max-width: 969px) {
+    height: initial;
+    margin: 16px;
+  }
+}
+
+h1 {
+  font-size: 48px;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 56.25px;
+
+  @media (max-width: 969px) {
+    font-size: 24px;
+    line-height: 28.13px;
+  }
+}
+
+h5 {
+  font-weight: 600;
+}
+
+p {
+  font-size: 36px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 42.19px;
+
+  @media (max-width: 969px) {
+    font-size: 18px;
+    line-height: 21.09px;
+  }
+}
+
+span {
+  font-size: 24px;
+  font-style: normal;
+  line-height: 28.13px;
+
+  @media (max-width: 969px) {
+    font-size: 12px;
+    line-height: 14.06px;
+  }
+}
+
+$figBlue: #0366d6;
+$figWhite: #f6f8fa;

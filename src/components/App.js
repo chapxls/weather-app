@@ -1,39 +1,55 @@
-import React, { Component } from 'react'
-import styled from 'styled-components'
-import Card from './Card/Card'
-import List from './List/List'
-
+import React, { Component } from "react";
+import styled from "styled-components";
+import "./App.scss";
+import Card from "./Card/Card";
+import List from "./List/List";
 
 class App extends Component {
-
-  render () {
+  render() {
     return (
       <Container>
-        <SideBar2>
-          <Card/>
-        </SideBar2>
-        <Main2>
-          <List/>
-        </Main2>
+        <SideBar className="sidebar">
+          <Card />
+        </SideBar>
+        <Main className="main">
+          <List />
+        </Main>
       </Container>
     );
   }
 }
 
-const Container = styled.div `
-  display: flex; 
-  margin: 10px;
-`
+const Container = styled.div`
+  display: flex;
+  height: 100%;
 
-const SideBar2 = styled.div `
+  @media (max-width: 768px) {
+    display: inherit;
+    height: initial;
+  }
+`;
+
+const SideBar = styled.div`
   width: 30%;
   height: 100%;
   background: #f1f8ff;
-`
 
-const Main2 = styled.div `
-height: 100%;
-  width: 544px;
-`
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 100%;
+    padding: 16px;
+  }
+`;
 
-export default App
+const Main = styled.div`
+  display: flex;
+  height: 100%;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    margin: 0;
+    margin-top: 32px;
+  }
+`;
+
+export default App;
