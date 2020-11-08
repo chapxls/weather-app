@@ -56,7 +56,13 @@
 
     .card-subtitle,
     .card-text {
-      margin-top: 0;
+      margin-top: 11px;
+      font-size: $smFontSizeMob;
+      line-height: 21.09px;
+      @include responsiveMin($lap) {
+        font-size: $smFontSizeDesk;
+        line-height: 28.13px;
+      }
     }
   }
 }
