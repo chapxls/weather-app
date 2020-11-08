@@ -25,6 +25,7 @@ export const switchImg = (dataValue) => {
     case "Thunder":
       return thunder;
     case "Fog":
+    case "Mist":
       return fog;
     case "Light rain":
     case "Light drizzle":
