@@ -1,26 +1,39 @@
+@import "../../design-tokens/scss-variables";
+
 .main {
   .container-fluid {
-    padding: 32px;
-
-    @media (max-width: 320px) {
-      padding: 0;
+    padding: 0;
+    @include responsiveMin($mb) {
+      padding: 16px;
+    }
+    @include responsiveMin($lg) {
+      padding: 32px;
     }
   }
 
   h1 {
-    margin-bottom: 48px;
-
-    @media (max-width: 320px) {
-      margin-top: 0;
-      margin-bottom: 24px;
+    margin-top: 0;
+    margin-bottom: 24px;
+    @include responsiveMin($lg) {
+      margin-bottom: 48px;
     }
   }
 
   .upcoming-weather-list-row {
-    width: 100%;
-    border-bottom: 2px solid #f6f8fa;
+    width: initial;
     margin: 0;
-    padding: 16px 0 16px 0;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    @include responsiveMin($lg) {
+      width: 100%;
+      border-bottom: 2px solid $whiteColor;
+      margin: 0;
+      padding: 16px 0 16px 0;
+    }
+
+    &:last-child {
+      border-bottom: 0;
+    }
 
     .weekday-col {
       cursor: pointer;
@@ -35,43 +48,32 @@
     }
 
     .max-temp {
-      color: #0366d6;
+      color: $blueColor;
       margin-right: 20px;
     }
 
     .min-temp {
-      color: lighten(#0366d6, 50%);
+      color: lighten($blueColor, 50%);
     }
 
     .sun {
       display: grid;
-      margin-right: 32px;
-      margin-top: 16px;
+      width: initial;
+      margin-right: 16px;
+      margin-top: 8px;
+      padding: 0;
+      @include responsiveMin($mb) {
+        margin-right: 32px;
+        margin-top: 16px;
+      }
+      @include responsiveMin($lg) {
+        margin-right: 32px;
+        margin-top: 16px;
+      }
 
       .sun-mode {
         font-weight: 600;
       }
-
-      @media (max-width: 320px) {
-        width: initial;
-        margin-right: 16px;
-        margin-top: 8px;
-        padding: 0;
-      }
     }
-
-    @media (max-width: 320px) {
-      width: initial;
-      margin: 0;
-      padding-bottom: 8px;
-      padding-top: 8px;
-    }
-
-    &:last-child {
-      border-bottom: 0;
-    }
-  }
-
-  @media (max-width: 320px) {
   }
 }

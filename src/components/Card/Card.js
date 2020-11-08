@@ -49,6 +49,8 @@ export default class Card extends Component {
       return lightRain;
     } else if (weatherDesc === "Overcast") {
       return cloud;
+    } else if (weatherDesc === "Light drizzle") {
+      return lightRain;
     }
   }
 
@@ -56,18 +58,18 @@ export default class Card extends Component {
     return this.state.loading || !this.state.weather ? (
       <div>Loading weather data..</div>
     ) : (
-      <div className="container p-0">
+      <div className="container-fluid p-0">
         <div className="row no-gutters">
           <h1 className="col-12">Today</h1>
           <div className="col-12 card">
             <div className="card-body">
-              <div className="col-6 col-sm-12 p-0">
+              <div className="col-6 col-lg-12 p-0">
                 <h5 className="card-title">{this.state.weather.temp_C}°</h5>
                 <h6 className="card-subtitle">
                   Feels like {this.state.weather.FeelsLikeC}°
                 </h6>
               </div>
-              <div className="col-6 col-sm-12 p-0">
+              <div className="col-6 col-lg-12 p-0">
                 <img src={this.switchImg()} alt="weather-img" />
                 <p className="card-text">
                   {this.state.weather.weatherDesc[0].value}

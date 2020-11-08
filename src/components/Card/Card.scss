@@ -1,68 +1,71 @@
+@import "../../design-tokens/scss-variables";
+
 .sidebar {
   min-height: 100%;
+  padding: 16px;
+
+  @include responsiveMin($lg) {
+    padding: 0;
+  }
 
   h1 {
-    margin: 32px 32px 0 32px;
-
-    @media (max-width: 320px) {
-      margin: 0;
-      margin-bottom: 24px;
-    }
+    margin: 0;
+    margin-bottom: 24px;
   }
 
   .card {
     background: transparent;
     border: none;
-    margin-top: 25%;
+    margin-top: 0;
+    margin: 0;
+    @include responsiveMin($med) {
+      margin-top: 45px;
+    }
+    @include responsiveMin($lg) {
+      margin-top: 181px;
+    }
 
     .card-body {
       text-align: center;
       color: #0366d6;
-
-      @media (max-width: 320px) {
-        display: flex;
-        padding: 0;
+      padding: 0;
+      display: flex;
+      @include responsiveMin(992px) {
+        display: initial;
       }
     }
 
     h5 {
-      font-size: 144px;
-
-      @media (max-width: 320px) {
-        font-size: 72px;
+      font-size: $lgFontSizeDesk / 2;
+      @include responsiveMin($mb) {
+        font-size: $lgFontSizeDesk / 2;
+      }
+      @include responsiveMin($lg) {
+        font-size: $lgFontSizeDesk;
       }
     }
 
     img {
-      width: 144px;
-      margin-top: 70px;
-
-      @media (max-width: 320px) {
-        margin-top: 0;
-        width: 72px;
+      margin-top: 0;
+      width: 72px;
+      @include responsiveMin($lg) {
+        margin-top: 70px;
+        width: 144px;
       }
     }
 
     .card-subtitle,
     .card-text {
-      font-size: 24px;
+      font-size: $mdFontSizeMob;
       font-weight: 400;
       font-style: normal;
-
-      @media (max-width: 320px) {
-        font-size: 12px;
+      @include responsiveMin($lg) {
+        font-size: $mdFontSizeDesk;
       }
     }
 
     .card-text {
       margin-top: 11px;
     }
-
-    @media (max-width: 320px) {
-      margin: 0;
-    }
-  }
-  @media (max-width: 320px) {
-    padding: 16px;
   }
 }

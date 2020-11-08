@@ -30,14 +30,15 @@ const Container = styled.div`
 `;
 
 const SideBar = styled.div`
-  width: 30%;
-  height: 100%;
   background: #f1f8ff;
+  width: 100%;
+  height: 100%;
+  padding: 16px;
 
-  @media (max-width: 768px) {
-    width: 100%;
+  @media (min-width: 1440px) {
+    width: 55%;
     height: 100%;
-    padding: 16px;
+    padding: 32px;
   }
 `;
 

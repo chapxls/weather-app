@@ -1,3 +1,5 @@
+@import "../design-tokens/scss-variables";
+
 html,
 body,
 #root {
@@ -12,14 +14,17 @@ body {
 }
 
 h1 {
-  font-size: 48px;
+  font-size: $mmdFontSizeMob;
+  line-height: 28.13px;
   font-weight: 600;
   font-style: normal;
-  line-height: 56.25px;
-
-  @media (max-width: 969px) {
-    font-size: 24px;
+  @include responsiveMin($mb) {
+    font-size: $mmdFontSizeMob;
     line-height: 28.13px;
+  }
+  @include responsiveMin($lg) {
+    font-size: $mmdFontSizeDesk;
+    line-height: 56.25px;
   }
 }
 
@@ -49,6 +54,3 @@ span {
     line-height: 14.06px;
   }
 }
-
-$figBlue: #0366d6;
-$figWhite: #f6f8fa;

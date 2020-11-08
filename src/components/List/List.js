@@ -23,12 +23,12 @@ export default class List extends Component {
     });
   }
 
-  getDayName(dateStr, locale) {
+  getWeekday(dateStr, locale) {
     let date = new Date(dateStr);
     return date.toLocaleDateString(locale, { weekday: "long" });
   }
 
-  getMonthName(dateStr, locale) {
+  getMonthStr(dateStr, locale) {
     let date = new Date(dateStr),
       months = [
         "January",
@@ -47,12 +47,12 @@ export default class List extends Component {
     return date.getDate() + " " + months[date.getMonth()].slice(0, 3);
   }
 
-  toggleClick(i, event) {
+  toggleClick(weekdayId, event) {
     this.setState({
-      active: i,
+      active: weekdayId,
     });
 
-    if (this.state.active === i) {
+    if (this.state.active === weekdayId) {
       this.setState({
         active: null,
       });
@@ -70,13 +70,12 @@ export default class List extends Component {
             <div
               className="row upcoming-weather-list-row"
               key={index}
-              data-id={index}
               onClick={this.toggleClick.bind(this, index)}
             >
               <div className="col-12 p-0 d-flex weekday-col">
                 <div className="col-7 p-0">
-                  <p>{this.getDayName(weatherInfo.date, "se-SE")}, </p>
-                  <p>{this.getMonthName(weatherInfo.date, "se-SE")}</p>
+                  <p>{this.getWeekday(weatherInfo.date, "se-SE")}, </p>
+                  <p>{this.getMonthStr(weatherInfo.date, "se-SE")}</p>
                 </div>
                 <div className="col-5 p-0 text-right">
                   <p className="max-temp">{weatherInfo.maxtempC}°</p>

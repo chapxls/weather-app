@@ -1,0 +1,29 @@
+$lg: 1440px;
+$lap: 1024px;
+$med: 768px;
+$mb: 575px;
+$sm: 414px;
+
+$lgFontSizeDesk: 144px;
+$lgFontSizeMob: $lgFontSizeDesk / 2;
+
+$mmdFontSizeDesk: 48px;
+$mmdFontSizeMob: $mmdFontSizeDesk / 2;
+
+$mdFontSizeDesk: 24px;
+$mdFontSizeMob: $mdFontSizeDesk / 2;
+
+$blueColor: #0366d6;
+$whiteColor: #f6f8fa;
+
+@mixin responsiveMin($query) {
+  @media (min-width: + $query) {
+    @content;
+  }
+}
+
+@mixin responsiveMax($query) {
+  @media (max-width: + $query) {
+    @content;
+  }
+}
