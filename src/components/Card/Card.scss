@@ -1,16 +1,12 @@
 @import "../../design-tokens/scss-variables";
 
-.sidebar {
-  min-height: 100%;
-  padding: 16px;
-
-  @include responsiveMin($lg) {
-    padding: 0;
-  }
-
+.card-container {
   h1 {
     margin: 0;
     margin-bottom: 24px;
+    @include responsiveMin($sm) {
+      margin-bottom: 0;
+    }
   }
 
   .card {
@@ -19,9 +15,9 @@
     margin-top: 0;
     margin: 0;
     @include responsiveMin($med) {
-      margin-top: 45px;
+      margin-top: 90px;
     }
-    @include responsiveMin($lg) {
+    @include responsiveMin($lap) {
       margin-top: 181px;
     }
 
@@ -35,37 +31,32 @@
       }
     }
 
-    h5 {
-      font-size: $lgFontSizeDesk / 2;
-      @include responsiveMin($mb) {
-        font-size: $lgFontSizeDesk / 2;
-      }
-      @include responsiveMin($lg) {
-        font-size: $lgFontSizeDesk;
+    .image-wrapper {
+      height: 84px;
+
+      @include responsiveMin($lap) {
+        height: 169px;
+        margin-top: 70px;
       }
     }
 
     img {
       margin-top: 0;
       width: 72px;
-      @include responsiveMin($lg) {
-        margin-top: 70px;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+      @include responsiveMin($lap) {
         width: 144px;
+        position: initial;
+        top: initial;
+        transform: none;
       }
     }
 
     .card-subtitle,
     .card-text {
-      font-size: $mdFontSizeMob;
-      font-weight: 400;
-      font-style: normal;
-      @include responsiveMin($lg) {
-        font-size: $mdFontSizeDesk;
-      }
-    }
-
-    .card-text {
-      margin-top: 11px;
+      margin-top: 0;
     }
   }
 }

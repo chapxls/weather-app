@@ -35,7 +35,7 @@ const SideBar = styled.div`
   height: 100%;
   padding: 16px;
 
-  @media (min-width: 1440px) {
+  @media (min-width: 769px) {
     width: 55%;
     height: 100%;
     padding: 32px;

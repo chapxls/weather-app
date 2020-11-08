@@ -7,29 +7,35 @@ body,
 }
 
 body {
-  @media (max-width: 969px) {
-    height: initial;
+  @media (max-width: 768px) {
     margin: 16px;
   }
 }
 
 h1 {
-  font-size: $mmdFontSizeMob;
+  font-size: $mdFontSizeMob;
   line-height: 28.13px;
   font-weight: 600;
   font-style: normal;
-  @include responsiveMin($mb) {
-    font-size: $mmdFontSizeMob;
+  @include responsiveMin($md) {
+    font-size: $mdFontSizeMob;
     line-height: 28.13px;
   }
-  @include responsiveMin($lg) {
-    font-size: $mmdFontSizeDesk;
+  @include responsiveMin($lap) {
+    font-size: $mdFontSizeDesk;
     line-height: 56.25px;
   }
 }
 
 h5 {
+  height: 84px;
   font-weight: 600;
+  font-size: $lgFontSizeDesk / 2;
+  margin-bottom: 0;
+  @include responsiveMin($lap) {
+    height: 169px;
+    font-size: $lgFontSizeDesk;
+  }
 }
 
 p {
@@ -37,20 +43,21 @@ p {
   font-weight: 400;
   font-style: normal;
   line-height: 42.19px;
-
-  @media (max-width: 969px) {
+  @media (max-width: $lap) {
     font-size: 18px;
     line-height: 21.09px;
   }
 }
 
 span {
-  font-size: 24px;
+  font-size: $smFontSizeMob;
   font-style: normal;
-  line-height: 28.13px;
-
-  @media (max-width: 969px) {
-    font-size: 12px;
-    line-height: 14.06px;
+  line-height: 14.06px;
+  height: 14px;
+  @include responsiveMin($lap) {
+    font-size: 24px;
+    height: 28px;
+    font-size: $smFontSizeDesk;
+    line-height: 28.13px;
   }
 }
